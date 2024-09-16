@@ -1,1 +1,31 @@
-c:\Users\piso1\OneDrive\Bureau\1-distributed_web_infrastructure.png
+                             +-------------------+
+                             |   Utilisateur     |
+                             +-------------------+
+                                       |
+                                       | (requête HTTP)
+                                       V
+                            +-----------------------------+
+                            |        Load Balancer        |
+                            |           (HAproxy)         |
+                            +-----------------------------+
+                              /                \
+                             /                  \
+                            V                    V
+           +-------------------------+  +-------------------------+
+           |      Web Server 1       |  |      Web Server 2       |
+           |         (Nginx)         |  |         (Nginx)         |
+           +-------------------------+  +-------------------------+
+                      |                          |
+                      | (requêtes HTTP)          | (requêtes HTTP)
+                      V                          V
+           +-------------------------+  +-------------------------+
+           |  Application Server 1   |  |  Application Server 2   |
+           +-------------------------+  +-------------------------+
+                      |                          |
+                      | (requêtes SQL)           | (requêtes SQL)
+                      V                          V
+           +-------------------------+
+           |     Database Cluster    |
+           |    (MySQL Primary +      |
+           |      Replicas)          |
+           +-------------------------+
